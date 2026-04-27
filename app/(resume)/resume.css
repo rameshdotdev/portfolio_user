@@ -188,5 +188,25 @@
     background: white !important;
     color: black !important;
     border: none !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .a4-page,
+  .a4-page * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .a4-page .bg-zinc-200,
+  .a4-page .dark .bg-zinc-800 {
+    background-color: transparent !important;
+  }
+
+  .print-divider {
+    width: 100%;
+    border-top: 1px solid #c4c4c4 !important;
+    height: 0 !important;
   }
 }

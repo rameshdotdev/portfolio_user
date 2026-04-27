@@ -1,6 +1,7 @@
 "use client";
 import "../resume.css";
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
+import { toast } from "sonner";
 import {
   Download,
   Edit2,
@@ -55,6 +56,7 @@ export default function App() {
   );
   const [editingSection, setEditingSection] = useState<string | null>(null);
   const [sectionEditValue, setSectionEditValue] = useState("");
+  const pageRef = useRef<HTMLDivElement | null>(null);
 
   const handleSave = () => {
     try {
@@ -80,7 +82,68 @@ export default function App() {
   };
 
   const handlePrint = () => {
-    window.print();
+    const element = pageRef.current;
+    if (!element) {
+      toast.error("Resume content not found");
+      return;
+    }
+
+    const styleTagsHtml = Array.from(document.querySelectorAll("style"))
+      .map((s) => s.outerHTML)
+      .join("\n");
+
+    const linkTagsHtml = Array.from(
+      document.querySelectorAll('link[rel="stylesheet"]'),
+    )
+      .map((l) => l.outerHTML)
+      .join("\n");
+
+    const htmlClass = document.documentElement.className;
+    const printWindow = window.open("", "_blank", "width=900,height=700");
+    if (!printWindow) {
+      toast.error("Popup blocked — please allow popups and try again.");
+      return;
+    }
+
+    printWindow.document.write(`<!DOCTYPE html>
+<html class="${htmlClass}">
+<head>
+  <meta charset="utf-8" />
+  <title>${data.personalInfo.name} Resume</title>
+  ${linkTagsHtml}
+  ${styleTagsHtml}
+  <style>
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+    }
+    @page {
+      margin: 15mm;
+      size: A4 portrait;
+    }
+    .no-print {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  ${element.outerHTML}
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () { window.print(); window.close(); }, 600);
+    });
+  <\/script>
+</body>
+</html>`);
+
+    printWindow.document.close();
+    toast.success('Print dialog opened — choose "Save as PDF" to download');
   };
 
   return (
@@ -189,7 +252,10 @@ export default function App() {
       )}
 
       {/* Resume Page */}
-      <div className="a4-page relative bg-white dark:bg-zinc-950 font-sans text-[11px] leading-normal text-zinc-950 dark:text-zinc-100">
+      <div
+        ref={pageRef}
+        className="a4-page relative bg-white dark:bg-zinc-950 font-sans text-[11px] leading-normal text-zinc-950 dark:text-zinc-100"
+      >
         {/* Header */}
         <header className="mb-6">
           <div className="flex flex-col items-center text-center mb-4">
@@ -214,12 +280,12 @@ export default function App() {
               })}
             </div>
             {data.personalInfo.lastUpdated && (
-              <div className="absolute right-2 top-2 text-[9px] font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+              <div className="no-print absolute right-2 top-2 text-[9px] font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
                 Last updated: {data.personalInfo.lastUpdated}
               </div>
             )}
           </div>
-          <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800" />
+          <div className="w-full h-px print-divider bg-zinc-200 dark:bg-zinc-800" />
         </header>
 
         {/* Sections */}
