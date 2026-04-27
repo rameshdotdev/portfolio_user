@@ -1,7 +1,6 @@
 "use client";
 import "../resume.css";
-import React, { useRef, useState } from "react";
-import { toast } from "sonner";
+import { useRef, useState } from "react";
 import {
   Download,
   Edit2,
@@ -82,89 +81,7 @@ export default function App() {
   };
 
   const handlePrint = () => {
-    const isMobile = window.innerWidth < 768;
-    const element = pageRef.current;
-    if (!element) {
-      toast.error("Resume content not found");
-      return;
-    }
-
-    if (isMobile) {
-      // On mobile, temporarily hide no-print elements and print the current page
-      const noPrintElements = document.querySelectorAll(".no-print");
-      noPrintElements.forEach(
-        (el) => ((el as HTMLElement).style.display = "none"),
-      );
-
-      window.print();
-
-      // Restore visibility after print dialog
-      setTimeout(() => {
-        noPrintElements.forEach(
-          (el) => ((el as HTMLElement).style.display = ""),
-        );
-      }, 1000);
-
-      toast.success('Print dialog opened — choose "Save as PDF" to download');
-      return;
-    }
-
-    const styleTagsHtml = Array.from(document.querySelectorAll("style"))
-      .map((s) => s.outerHTML)
-      .join("\n");
-
-    const linkTagsHtml = Array.from(
-      document.querySelectorAll('link[rel="stylesheet"]'),
-    )
-      .map((l) => l.outerHTML)
-      .join("\n");
-
-    const htmlClass = document.documentElement.className;
-    const printWindow = window.open("", "_blank", "width=900,height=700");
-    if (!printWindow) {
-      toast.error("Popup blocked — please allow popups and try again.");
-      return;
-    }
-
-    printWindow.document.write(`<!DOCTYPE html>
-<html class="${htmlClass}">
-<head>
-  <meta charset="utf-8" />
-  <title>${data.personalInfo.name} Resume</title>
-  ${linkTagsHtml}
-  ${styleTagsHtml}
-  <style>
-    *, *::before, *::after {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-      color-adjust: exact !important;
-    }
-    body {
-      margin: 0;
-      background: white;
-      color: black;
-    }
-    @page {
-      margin: 15mm;
-      size: A4 portrait;
-    }
-    .no-print {
-      display: none !important;
-    }
-  </style>
-</head>
-<body>
-  ${element.outerHTML}
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(function () { window.print(); window.close(); }, 600);
-    });
-  <\/script>
-</body>
-</html>`);
-
-    printWindow.document.close();
-    toast.success('Print dialog opened — choose "Save as PDF" to download');
+    window.print();
   };
 
   return (
