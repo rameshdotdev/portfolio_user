@@ -82,9 +82,30 @@ export default function App() {
   };
 
   const handlePrint = () => {
+    const isMobile = window.innerWidth < 768;
     const element = pageRef.current;
     if (!element) {
       toast.error("Resume content not found");
+      return;
+    }
+
+    if (isMobile) {
+      // On mobile, temporarily hide no-print elements and print the current page
+      const noPrintElements = document.querySelectorAll(".no-print");
+      noPrintElements.forEach(
+        (el) => ((el as HTMLElement).style.display = "none"),
+      );
+
+      window.print();
+
+      // Restore visibility after print dialog
+      setTimeout(() => {
+        noPrintElements.forEach(
+          (el) => ((el as HTMLElement).style.display = ""),
+        );
+      }, 1000);
+
+      toast.success('Print dialog opened — choose "Save as PDF" to download');
       return;
     }
 
