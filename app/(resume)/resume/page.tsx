@@ -85,7 +85,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen pb-20 bg-background transition-colors duration-500">
-      <BackBtn className={"hidden sm:inline-block fixed top-4 left-4 z-100"} />
+      <BackBtn
+        className={"hidden sm:inline-block fixed top-4 left-4 z-100 no-print"}
+      />
       {/* Controls */}
       <div className="fixed bottom-6 right-6 flex flex-col gap-3 no-print z-50">
         {user && user._id && (
