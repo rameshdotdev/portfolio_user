@@ -24,7 +24,7 @@ export default function MediumHoverCard({
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-linear-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
               <Image
-                alt="Profile"
+                alt="Medium card profile avatar for Ramesh Kumar"
                 src="/images/logo/mark.jpeg"
                 width={56}
                 height={56}

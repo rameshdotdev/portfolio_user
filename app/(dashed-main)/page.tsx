@@ -106,40 +106,51 @@ export default function Page() {
 
   return (
     <>
-      {/* Profile */}
-      <VerticalDashedBorderLayout>
-        <Profile />
-      </VerticalDashedBorderLayout>
+      <section id="hero" className="flow-root">
+        <VerticalDashedBorderLayout>
+          <Profile />
+        </VerticalDashedBorderLayout>
+      </section>
       <HorizontalDashedBorder />
-      {/* About + Socials */}
-      <VerticalDashedBorderLayout>
-        <AboutSocials />
-        {/* Github Contributions */}
-        <section id="contributions">
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <GithubContributions />
-          </BlurFade>
-        </section>
-      </VerticalDashedBorderLayout>
-      {/* Experiences, Education, Projects */}
-      <Suspense fallback={null}>
-        <BelowFoldContent />
-      </Suspense>
-      {/* Skills */}
-      <Title title="Skills & Technologies" />
-      <VerticalDashedBorderLayout>
-        <SkillsChips />
-      </VerticalDashedBorderLayout>
-      {/* Newsletter */}
-      <Title title="Newsletter" />
-      <VerticalDashedBorderLayout className="p-0">
-        <SubscribeBox />
-      </VerticalDashedBorderLayout>
+
+      <section id="about" className="flow-root">
+        <VerticalDashedBorderLayout>
+          <AboutSocials />
+          <section id="contributions">
+            <BlurFade delay={BLUR_FADE_DELAY * 10}>
+              <GithubContributions />
+            </BlurFade>
+          </section>
+        </VerticalDashedBorderLayout>
+      </section>
+
+      <section id="career" className="flow-root">
+        <Suspense fallback={null}>
+          <BelowFoldContent />
+        </Suspense>
+      </section>
+
+      <section id="skills" className="flow-root">
+        <Title title="Skills & Technologies" />
+        <VerticalDashedBorderLayout>
+          <SkillsChips />
+        </VerticalDashedBorderLayout>
+      </section>
+
+      <section id="newsletter" className="flow-root">
+        <Title title="Newsletter" />
+        <VerticalDashedBorderLayout className="p-0">
+          <SubscribeBox />
+        </VerticalDashedBorderLayout>
+      </section>
+
       <HorizontalDashedBorder />
-      {/* Quote */}
-      <VerticalDashedBorderLayout>
-        <QuoteCard />
-      </VerticalDashedBorderLayout>
+
+      <section id="quote" className="flow-root">
+        <VerticalDashedBorderLayout>
+          <QuoteCard />
+        </VerticalDashedBorderLayout>
+      </section>
     </>
   );
 }

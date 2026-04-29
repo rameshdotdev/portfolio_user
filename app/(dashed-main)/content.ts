@@ -9,7 +9,7 @@ export const heroData = {
       name: "Ramesh Kumar",
       titles: ["Software Engineer", "Full Stack Developer", "Tech Enthusiast"],
       description:
-        "Hey, I'm Ramesh a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.  \n\nTech stack isn't my concern, I'm flexible with whatever the project needs, though I prefer modern frameworks and tools. I'm always open for new opportunities to learn and grow.",
+        "Hey, I’m Ramesh — a full stack developer crafting SEO-friendly portfolio websites, custom React applications, and fast Next.js experiences. I build polished, mobile-first web products with clean UI, blazing performance, and strong search visibility.",
       isVerified: true,
     },
     {

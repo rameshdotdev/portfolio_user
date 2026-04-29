@@ -28,9 +28,9 @@ export default function ComingSoon() {
             <div className="p-[4px] rounded-[12px] border border-border">
               <div className="relative w-full bg-mutedBackground rounded-[8px] border border-border h-[200px] md:h-[200px] sm:h-[170px] overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center opacity-30" />
-                <h1 className="absolute top-2 left-2 text-xs text-mutedForeground font-medium">
-                  Coming Soon
-                </h1>
+                <span className="absolute top-2 left-2 text-xs text-mutedForeground font-medium">
+                  Coming soon
+                </span>
 
                 <div className="bg-background rounded-t-[10px] absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[75%] p-[2px] pb-0">
                   <div className="relative w-full h-full rounded-t-[8px] overflow-hidden">

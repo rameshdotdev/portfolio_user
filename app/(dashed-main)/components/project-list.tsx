@@ -91,9 +91,9 @@ export default function ProjectsGridList() {
                       />
 
                       {/* Subtitle */}
-                      <h1 className="absolute left-2 top-2 text-xs font-medium text-muted-foreground transition-all duration-300 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:text-foreground">
+                      <p className="absolute left-2 top-2 text-xs font-medium text-muted-foreground transition-all duration-300 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:text-foreground">
                         {project.subTitle}
-                      </h1>
+                      </p>
 
                       {/* Preview */}
                       <div className="absolute bottom-0 left-1/2 h-[75%] w-[80%] -translate-x-1/2 rounded-t-[6px] bg-background p-[2px] pb-0 transition-all duration-300 group-hover:h-[70%]">
@@ -102,7 +102,7 @@ export default function ProjectsGridList() {
                           <div className="hidden dark:block">
                             <Image
                               src={project.image.dark.url}
-                              alt="Dark Screenshot"
+                              alt={`Dark mode preview of ${project.title}`}
                               width={1000}
                               height={1000}
                               className="h-full w-full object-cover"
@@ -113,7 +113,7 @@ export default function ProjectsGridList() {
                           <div className="block dark:hidden">
                             <Image
                               src={project.image.light.url}
-                              alt="Light Screenshot"
+                              alt={`Light mode preview of ${project.title}`}
                               width={1000}
                               height={1000}
                               className="h-full w-full object-cover"

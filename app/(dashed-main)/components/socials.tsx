@@ -175,25 +175,23 @@ export default function Socials() {
       <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
         <div className="flex flex-col gap-2 py-4">
           <div className="flex gap-2">
-            <h1 className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Here are my{" "}
               <span className="font-medium text-foreground">socials </span>
-            </h1>
-            <h1 className="relative text-sm text-muted-foreground">
+            </p>
+            <p className="relative text-sm text-muted-foreground">
               & for resume click{" "}
-              <span>
-                <Link
-                  href="/resume"
-                  className="font-medium text-foreground underline"
-                >
-                  here
-                </Link>
-              </span>
-              <div
+              <Link
+                href="/resume"
+                className="font-medium text-foreground underline"
+              >
+                here
+              </Link>
+              <span
                 id="pulsing-dot"
                 className="absolute top-[53%] -translate-y-1/2 -right-2 size-1 bg-cyan-600 rounded-full animate-ping"
               />
-            </h1>
+            </p>
           </div>
 
           <div>

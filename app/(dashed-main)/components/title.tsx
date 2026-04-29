@@ -14,6 +14,8 @@ function Title({
   title: string;
   isSubPage?: boolean;
 }) {
+  const HeadingTag = isSubPage ? "h1" : "h2";
+
   return (
     <>
       {!isSubPage && <HorizontalDashedBorder />}
@@ -23,9 +25,9 @@ function Title({
           <div className="flex items-center gap-2">
             {isSubPage ? <BackBtn /> : null}
 
-            <h1 className="text-[16px] sm:text-[20px] font-bold leading-tight text-foreground">
+            <HeadingTag className="text-[16px] sm:text-[20px] font-bold leading-tight text-foreground">
               {title}
-            </h1>
+            </HeadingTag>
           </div>
 
           {isSubPage ? (

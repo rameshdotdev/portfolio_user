@@ -86,7 +86,7 @@ export default function SocialPreviewCard({
             {/* Avatar */}
             <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-full border-4 border-background flex items-center justify-center overflow-hidden">
               <Image
-                alt="Profile"
+                alt="X profile avatar for Aryan Goswami"
                 src="/images/socials/x-photo.jpg"
                 width={64}
                 height={64}
@@ -135,7 +135,7 @@ export default function SocialPreviewCard({
           <div className="flex items-start gap-3">
             <div className="w-14 h-14 bg-linear-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
               <Image
-                alt="Profile"
+                alt="GitHub profile avatar for Ramesh Kumar"
                 src="/images/socials/mark.jpg"
                 width={56}
                 height={56}
@@ -195,7 +195,7 @@ export default function SocialPreviewCard({
             <div className="absolute left-4 -bottom-10">
               <div className="w-[72px] h-[72px] rounded-full border-2 border-background bg-background overflow-hidden">
                 <Image
-                  alt="Profile"
+                  alt="LinkedIn profile avatar for Ramesh Kumar"
                   src="/images/socials/defaultLinked.jpg"
                   width={72}
                   height={72}
@@ -235,7 +235,7 @@ export default function SocialPreviewCard({
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-linear-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
               <Image
-                alt="Profile"
+                alt="Medium profile avatar for Ramesh Kumar"
                 src="/images/socials/midium.jpg"
                 width={56}
                 height={56}
@@ -276,7 +276,7 @@ export default function SocialPreviewCard({
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-linear-to-br from-yellow-500 to-orange-600 rounded-[8px] flex items-center justify-center shrink-0 overflow-hidden">
               <Image
-                alt="Profile"
+                alt="LeetCode avatar for Ramesh Kumar"
                 src="/images/socials/mark.jpg"
                 width={56}
                 height={56}

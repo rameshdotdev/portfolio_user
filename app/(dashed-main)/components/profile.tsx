@@ -97,7 +97,7 @@ export default function Profile() {
               >
                 <Image
                   src={user.avatar?.url || "/avatar.png"}
-                  alt="Profile"
+                  alt={`${user.name} profile photo`}
                   width={110}
                   height={110}
                   draggable={false}

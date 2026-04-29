@@ -37,7 +37,7 @@ export default function XHoverCard({
             {/* Avatar */}
             <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-full border-4 border-background flex items-center justify-center overflow-hidden">
               <Image
-                alt="Profile"
+                alt="X profile avatar for Aryan Goswami"
                 src="/images/socials/x-photo.jpg"
                 width={64}
                 height={64}

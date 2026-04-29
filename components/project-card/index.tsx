@@ -78,7 +78,7 @@ export function ProjectCard({
                   <div className="hidden dark:block">
                     <Image
                       src={project.image.dark.url}
-                      alt="Dark Screenshot"
+                      alt={`Dark mode preview image for ${project.title}`}
                       width={1000}
                       height={1000}
                       className="h-full w-full object-cover"
@@ -89,7 +89,7 @@ export function ProjectCard({
                   <div className="block dark:hidden">
                     <Image
                       src={project.image.light.url}
-                      alt="Light Screenshot"
+                      alt={`Light mode preview image for ${project.title}`}
                       width={1000}
                       height={1000}
                       className="h-full w-full object-cover"

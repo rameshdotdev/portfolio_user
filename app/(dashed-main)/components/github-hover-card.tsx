@@ -24,7 +24,7 @@ export default function GithubHoverCard({
           <div className="flex items-start gap-3">
             <div className="w-14 h-14 bg-linear-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
               <Image
-                alt="Profile"
+                alt="GitHub card profile avatar for Ramesh Kumar"
                 src="/images/logo/mark.jpeg"
                 width={56}
                 height={56}

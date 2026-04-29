@@ -29,7 +29,7 @@ export default function Page() {
             <div className="w-full h-full md:min-h-85 min-h-60 rounded-[8px] relative border border-border p-1.5 overflow-hidden">
               {/* Light */}
               <Image
-                alt={project.title}
+                alt={`Light theme preview for ${project.title}`}
                 src={project.image.light.url}
                 width={1000}
                 height={1000}
@@ -39,7 +39,7 @@ export default function Page() {
 
               {/* Dark */}
               <Image
-                alt={project.title}
+                alt={`Dark theme preview for ${project.title}`}
                 src={project.image.dark.url}
                 width={1000}
                 height={1000}

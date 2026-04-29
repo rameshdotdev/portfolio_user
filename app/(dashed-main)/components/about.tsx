@@ -14,7 +14,11 @@ function About() {
   const user = useAppSelector(getActiveCharacter);
   const contact = useAppSelector(getContactData);
   return (
-    <>
+    <section aria-labelledby="about-heading" className="space-y-4">
+      <h2 id="about-heading" className="sr-only">
+        About Ramesh Kumar
+      </h2>
+
       <div className="flex flex-col gap-2 text-[16px] leading-relaxed text-muted-foreground">
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="text-xs md:text-[16px] leading-relaxed text-muted-foreground [&>p]:mb-2 [&>p:last-child]:mb-0">
@@ -36,7 +40,7 @@ function About() {
           </BlurFade>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

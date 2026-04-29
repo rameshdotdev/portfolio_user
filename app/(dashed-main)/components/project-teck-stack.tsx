@@ -173,7 +173,7 @@ export default function ProjectTeckStackChips({
         className,
       )}
     >
-      <h1>{title}</h1>
+      <h2>{title}</h2>
 
       <div className="flex flex-wrap items-center justify-center gap-2">
         {stack.map((label) => (

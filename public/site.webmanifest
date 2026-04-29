@@ -1,0 +1,21 @@
+{
+	"name": "Ramesh Kumar Portfolio",
+	"short_name": "RameshDev",
+	"description": "A fast, SEO-friendly portfolio for Ramesh Kumar, a full stack web developer using Next.js, React, and modern web technologies.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0b1120",
+	"theme_color": "#0b1120",
+	"icons": [
+		{
+			"src": "/favicon.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

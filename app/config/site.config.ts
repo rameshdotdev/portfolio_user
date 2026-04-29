@@ -3,22 +3,21 @@ import { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "imramesh.in",
   title:
-    "Ramesh Kumar | Software Engineer | Hey 👋 I'm Ramesh a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying.",
+    "Ramesh Kumar | Full Stack Developer Portfolio | Next.js & React Developer",
   description:
-    "amesh Kumar | Software Engineer | Hey 👋 I'm Ramesh a full stack developer who loves building clean, modern websites and apps where design, functionality, and even the smallest details matter, with a focus on making products that are both practical and visually satisfying. Tech stack isn't my concern, I'm flexible with whatever the project needs, though I prefer modern frameworks and tools. I'm always open for new opportunities to learn and grow.",
+    "Ramesh Kumar is a full stack web developer in India building fast, SEO-friendly Next.js and MERN applications. Hire a freelance developer for portfolio websites, custom SaaS, and responsive React experiences.",
   origin: "https://imramesh.in",
   keywords: [
-    "Ramesh",
-    "Aryan",
     "Ramesh Kumar",
-    "Ramesh Aryan",
-    "rameshdotin",
-    "imramesh.in",
-    "software developer",
-    "web developer",
-    "full stack developer",
-    "frontend developer",
-    "software Engineer",
+    "Full Stack Developer Portfolio",
+    "MERN Stack Developer",
+    "Next.js Developer",
+    "React Developer Portfolio",
+    "Hire Web Developer",
+    "Freelance Developer India",
+    "portfolio website",
+    "web application developer",
+    "SEO-friendly website",
   ],
   og: "https://imramesh.in/api/og",
   creator: {

@@ -36,7 +36,7 @@ export default function LinkedInHoverCard({
             <div className="absolute left-4 -bottom-10">
               <div className="w-[72px] h-[72px] rounded-full border-2 border-background bg-background overflow-hidden">
                 <Image
-                  alt="Profile"
+                  alt="LinkedIn card profile avatar for Ramesh Kumar"
                   src="/images/socials/defaultLinked.png"
                   width={72}
                   height={72}
