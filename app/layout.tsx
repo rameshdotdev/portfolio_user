@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -75,10 +75,6 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.creator.name, url: siteConfig.creator.url }],
   creator: siteConfig.creator.name,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#020617" },
-  ],
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -121,6 +117,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+  ],
 };
 
 export default function RootLayout({

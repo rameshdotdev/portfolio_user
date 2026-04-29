@@ -33,7 +33,7 @@ export default function MediumHoverCard({
             </div>
 
             <div>
-              <h3 className="text-title font-bold text-base">Rinkit Adhana</h3>
+              <h3 className="text-title font-bold text-base">Ramesh Kumar</h3>
               <p className="text-mutedForeground text-sm">@rinkitadhana</p>
             </div>
           </div>

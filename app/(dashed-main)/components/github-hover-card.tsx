@@ -34,7 +34,7 @@ export default function GithubHoverCard({
 
             <div className="flex-1 min-w-0">
               <h3 className="text-title font-semibold text-base">
-                Rinkit Adhana
+                Ramesh Kumar
               </h3>
               <p className="text-mutedForeground text-sm">rinkitadhana</p>
             </div>

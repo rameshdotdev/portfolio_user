@@ -15,22 +15,12 @@ import SubscribeBox from "./components/subscribe-box";
 import WorksSection from "./components/works-at";
 import EducationList from "./components/education-list";
 
-import { GithubSkeleton } from "@/components/skeleton/github-skeleton";
 import {
   GithubContributions,
-  GitmapSkeleton,
 } from "@/components/github-contribution";
 
 import { BLUR_FADE_DELAY } from "@/lib/utils";
-import { useAppSelector } from "@/hooks/hooks";
-import { getLoadingState } from "@/store/features/loadingSlice";
-
-import {
-  AboutSkeleton,
-  ProfileSkeleton,
-  ProjectsGridListSkeleton,
-} from "./skeleton";
-import SocialsSkeleton from "./socials-skeleton";
+import { ProfileSkeleton, ProjectsGridListSkeleton } from "./skeleton";
 import AboutSocials from "./components/section/about-socials";
 
 /* -------------------------------------------------------------------------- */
@@ -84,26 +74,6 @@ const BelowFoldContent = memo(function BelowFoldContent() {
 /* -------------------------------------------------------------------------- */
 
 export default function Page() {
-  const isLoading = useAppSelector(getLoadingState);
-
-  // if (isLoading) {
-  //   return (
-  //     <>
-  //       {" "}
-  //       <VerticalDashedBorderLayout>
-  //         {" "}
-  //         <ProfileSkeleton />{" "}
-  //       </VerticalDashedBorderLayout>
-  //       <HorizontalDashedBorder />
-  //       <VerticalDashedBorderLayout>
-  //         <AboutSkeleton />
-  //         <SocialsSkeleton />
-  //         <GithubSkeleton />
-  //       </VerticalDashedBorderLayout>
-  //     </>
-  //   );
-  // }
-
   return (
     <>
       <section id="hero" className="flow-root">

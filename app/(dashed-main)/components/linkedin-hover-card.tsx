@@ -50,7 +50,7 @@ export default function LinkedInHoverCard({
           <div className="pt-12 px-4 pb-4">
             <div className="mb-3">
               <h2 className="text-[18px] font-semibold text-title leading-tight">
-                Rinkit Adhana
+                Ramesh Kumar
               </h2>
               <p className="text-sm text-mutedForeground mt-1 leading-tight">
                 Software Engineer. Building cool stuff on the web
