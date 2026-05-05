@@ -43,7 +43,7 @@ export default function Profile() {
     revalidate: 120,
     tags: ["hero"],
   });
-  const { data: visitorData } = useFetch<Visitors>("/visitor", {
+  const { data: visitorData } = useFetch<Visitors>("/send", {
     revalidate: 120,
     tags: ["visitor"],
   });
