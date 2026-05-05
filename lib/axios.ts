@@ -1,6 +1,8 @@
 import axios from "axios";
 const uri =
-  process.env.NODE_ENV === "production" ? "/api" : "http://localhost:5000/api";
+  process.env.NODE_ENV === "production"
+    ? "https://api.imramesh.in"
+    : "http://localhost:5000/api";
 
 export const api = axios.create({
   baseURL: uri,
