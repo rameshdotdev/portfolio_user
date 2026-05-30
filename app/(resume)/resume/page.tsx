@@ -29,7 +29,7 @@ import ThemeToggler from "@/components/theme-toggler";
 import { useAppSelector } from "@/hooks/hooks";
 import { RootState } from "@/store";
 import { Button } from "@/components/ui/button";
-import BackBtn from "@/app/(dashed-main)/components/back-btn";
+import BackBtn from "@/app/(imramesh)/components/back-btn";
 
 const IconMap = {
   github: Github,

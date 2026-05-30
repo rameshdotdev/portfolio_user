@@ -43,6 +43,11 @@ export default function WorksSection() {
     setOpenId(sortedWorks[0]._id); // first card open
   }, [sortedWorks]);
 
+  // Show a skeleton while data is loading and we have no stored works
+  if (!data && (!works || works.length === 0)) {
+    return <WorksSectionSkeleton />;
+  }
+
   if (!sortedWorks.length) return null;
 
   return (
@@ -74,5 +79,41 @@ export default function WorksSection() {
         );
       })}
     </div>
+  );
+}
+
+function WorksSectionSkeleton() {
+  const placeholders = [1, 2, 3];
+
+  return (
+    <section aria-labelledby="experience-heading" className="space-y-6 p-4">
+      <h2 id="experience-heading" className="sr-only">
+        Experience
+      </h2>
+
+      <div className="space-y-6">
+        {placeholders.map((p) => (
+          <article
+            key={p}
+            className="animate-pulse flex flex-col gap-4 bg-transparent px-2 sm:px-0"
+            aria-hidden
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-md bg-muted" />
+              <div className="flex-1">
+                <div className="h-4 w-3/4 rounded bg-muted" />
+                <div className="mt-2 h-3 w-1/2 rounded bg-muted" />
+              </div>
+            </div>
+
+            <ul className="mt-2 space-y-2">
+              <li className="h-3 w-full rounded bg-muted" />
+              <li className="h-3 w-5/6 rounded bg-muted" />
+              <li className="h-3 w-2/3 rounded bg-muted" />
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }

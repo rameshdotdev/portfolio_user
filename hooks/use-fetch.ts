@@ -13,7 +13,7 @@ export function useFetch<T>(endpoint: string, options?: UseFetchOptions) {
   const uri =
     process.env.NODE_ENV === "production"
       ? "https://api.imramesh.in"
-      : "http://localhost:5000/api";
+      : "http://localhost:5000";
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState<Error | null>(null);

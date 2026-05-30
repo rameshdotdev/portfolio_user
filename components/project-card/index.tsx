@@ -6,11 +6,11 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useMemo } from "react";
 import BlurFade from "../magicui/blur-fade";
-import { StatusDot } from "@/app/(dashed-main)/components/status-dot";
+import { StatusDot } from "@/app/(imramesh)/components/status-dot";
 import { Project } from "@/types/project";
-import { getRandomBgImage } from "@/app/(dashed-main)/components/project-list";
+import { getRandomBgImage } from "@/app/(imramesh)/components/project-list";
 import { cn } from "@/lib/utils";
-import Pin from "@/app/(dashed-main)/components/pin";
+import Pin from "@/app/(imramesh)/components/pin";
 
 type Variant = "default" | "compact";
 

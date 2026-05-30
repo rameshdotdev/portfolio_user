@@ -3,11 +3,29 @@ import Title from "../components/title";
 import ExperienceCard from "../components/experiences-card";
 import VerticalDashedBorderLayout from "@/components/vertical-dashed-border-layout";
 import HorizontalDashedBorder from "@/components/horizontal-dashed-border";
-import { useAppSelector } from "@/hooks/hooks";
-import { getWorksData } from "@/store/features/workSlice";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import { getWorksData, setWorksData } from "@/store/features/workSlice";
+import { useEffect } from "react";
+import { api } from "@/lib/axios";
 
 export default function Page() {
   const works = useAppSelector(getWorksData);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (works.length > 0) return;
+
+    const fetchProjects = async () => {
+      try {
+        const res = await api.get("/works-at");
+        dispatch(setWorksData(res.data));
+      } catch (error) {
+        console.error("Failed to fetch projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, [works.length, dispatch]);
 
   if (!works?.length) return null;
 

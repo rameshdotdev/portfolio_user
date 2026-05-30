@@ -15,13 +15,14 @@ import SubscribeBox from "./components/subscribe-box";
 import WorksSection from "./components/works-at";
 import EducationList from "./components/education-list";
 
-import {
-  GithubContributions,
-} from "@/components/github-contribution";
+import { GithubContributions } from "@/components/github-contribution";
 
 import { BLUR_FADE_DELAY } from "@/lib/utils";
 import { ProfileSkeleton, ProjectsGridListSkeleton } from "./skeleton";
 import AboutSocials from "./components/section/about-socials";
+import { useAppSelector } from "@/hooks/hooks";
+import { getWorksData } from "@/store/features/workSlice";
+import { selectProjects } from "@/store/features/projectSlice";
 
 /* -------------------------------------------------------------------------- */
 /*                              Dynamic Imports                               */
@@ -42,17 +43,22 @@ const ProjectsGridList = dynamic(() => import("./components/project-list"), {
 /* -------------------------------------------------------------------------- */
 
 const BelowFoldContent = memo(function BelowFoldContent() {
+  const works = useAppSelector(getWorksData);
+  const projects = useAppSelector(selectProjects);
   return (
     <>
-      {" "}
       <Title title="Experiences" />
       <VerticalDashedBorderLayout className="p-0">
         <WorksSection />
       </VerticalDashedBorderLayout>
-      <HorizontalDashedBorder />
-      <VerticalDashedBorderLayout>
-        <ViewAllButton href="/experiences" />
-      </VerticalDashedBorderLayout>
+      {works?.length > 0 && (
+        <>
+          <HorizontalDashedBorder />
+          <VerticalDashedBorderLayout>
+            <ViewAllButton href="/experiences" />
+          </VerticalDashedBorderLayout>
+        </>
+      )}
       <Title title="Education" />
       <VerticalDashedBorderLayout className="p-0">
         <EducationList />
@@ -61,10 +67,14 @@ const BelowFoldContent = memo(function BelowFoldContent() {
       <VerticalDashedBorderLayout className="p-0">
         <ProjectsGridList />
       </VerticalDashedBorderLayout>
-      <HorizontalDashedBorder />
-      <VerticalDashedBorderLayout>
-        <ViewAllButton href="/projects" />
-      </VerticalDashedBorderLayout>
+      {projects?.length > 0 && (
+        <>
+          <HorizontalDashedBorder />
+          <VerticalDashedBorderLayout>
+            <ViewAllButton href="/projects" />
+          </VerticalDashedBorderLayout>
+        </>
+      )}
     </>
   );
 });
