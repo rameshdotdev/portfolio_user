@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import HorizontalDashedBorder from "@/components/horizontal-dashed-border";
+import { Skeleton } from "@/components/ui/skeleton";
 import ExperienceList from "./experience-list";
 import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
 import { getWorksData, setWorksData } from "@/store/features/workSlice";
@@ -82,36 +83,88 @@ export default function WorksSection() {
   );
 }
 
-function WorksSectionSkeleton() {
-  const placeholders = [1, 2, 3];
-
+function ExperienceExpandedSkeleton() {
   return (
-    <section aria-labelledby="experience-heading" className="space-y-6 p-4">
+    <div className="p-4">
+      <div className="flex justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="size-12 rounded-xl" />
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Skeleton className="h-6 w-36" />
+              <Skeleton className="hidden h-5 w-16 rounded-md md:block" />
+            </div>
+
+            <Skeleton className="h-4 w-32" />
+          </div>
+        </div>
+
+        <div className="space-y-2 text-right">
+          <Skeleton className="ml-auto h-4 w-32" />
+          <Skeleton className="ml-auto h-4 w-24" />
+        </div>
+      </div>
+
+      <div className="mt-6 space-y-5 pl-1">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} className="flex items-center gap-3">
+            <Skeleton className="size-2 rounded-full" />
+            <Skeleton className="h-4 w-full max-w-[600px]" />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <Skeleton key={i} className="h-7 w-16 rounded-md" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ExperienceCollapsedSkeleton() {
+  return (
+    <div className="p-4">
+      <div className="flex justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <Skeleton className="size-12 rounded-xl" />
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Skeleton className="h-6 w-32" />
+              <Skeleton className="hidden h-5 w-16 rounded-md md:block" />
+            </div>
+
+            <Skeleton className="h-4 w-28" />
+          </div>
+        </div>
+
+        <div className="space-y-2 text-right">
+          <Skeleton className="ml-auto h-4 w-28" />
+          <Skeleton className="ml-auto h-4 w-24" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WorksSectionSkeleton() {
+  return (
+    <section aria-labelledby="experience-heading" className="space-y-6">
       <h2 id="experience-heading" className="sr-only">
         Experience
       </h2>
 
-      <div className="space-y-6">
-        {placeholders.map((p) => (
-          <article
-            key={p}
-            className="animate-pulse flex flex-col gap-4 bg-transparent px-2 sm:px-0"
-            aria-hidden
-          >
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-md bg-muted" />
-              <div className="flex-1">
-                <div className="h-4 w-3/4 rounded bg-muted" />
-                <div className="mt-2 h-3 w-1/2 rounded bg-muted" />
-              </div>
-            </div>
+      <div>
+        <ExperienceExpandedSkeleton />
 
-            <ul className="mt-2 space-y-2">
-              <li className="h-3 w-full rounded bg-muted" />
-              <li className="h-3 w-5/6 rounded bg-muted" />
-              <li className="h-3 w-2/3 rounded bg-muted" />
-            </ul>
-          </article>
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i}>
+            <HorizontalDashedBorder height={2} />
+            <ExperienceCollapsedSkeleton />
+          </div>
         ))}
       </div>
     </section>
