@@ -10,10 +10,7 @@ interface UseFetchOptions {
 
 export function useFetch<T>(endpoint: string, options?: UseFetchOptions) {
   const { enabled = true } = options || {};
-  const uri =
-    process.env.NODE_ENV === "production"
-      ? "https://api.imramesh.in"
-      : "http://localhost:5000";
+  const uri = process.env.NEXT_PUBLIC_API_URL as string;
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState<Error | null>(null);

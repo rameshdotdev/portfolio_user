@@ -89,7 +89,10 @@ export function GitmapSkeleton({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn("relative", className)}
+      className={cn(
+        "relative overflow-x-auto sm:overflow-x-clip overflow-y-hidden",
+        className,
+      )}
       style={{ paddingLeft: 28, paddingTop: 15 }}
     >
       <div className="absolute -top-1 left-[28px] flex gap-8">
