@@ -21,4 +21,5 @@ export type Work = {
   points: string[];
   createdAt?: string;
   updatedAt?: string;
+  __v?: number;
 };

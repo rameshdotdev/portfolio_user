@@ -9,6 +9,7 @@ export type ProjectImageVariant = {
 export type ProjectImage = {
   light: ProjectImageVariant;
   dark: ProjectImageVariant;
+  _id?: string;
 };
 
 export type ProjectLinks = {
@@ -27,6 +28,9 @@ export type Project = {
   links: ProjectLinks;
   status: ProjectStatus;
   isPinned: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
 };
 
 export type CreateProjectPayload = Omit<Project, "_id">;
