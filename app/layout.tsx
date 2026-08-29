@@ -16,98 +16,148 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const structuredData = JSON.stringify([
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.creator.name,
-    url: siteConfig.origin,
-    sameAs: [
-      siteConfig.socials.github,
-      siteConfig.socials.x,
-      siteConfig.socials.linkedin,
-      siteConfig.socials.buymeacoffee,
-    ],
-    jobTitle: "Full Stack Developer",
-    description:
-      "Ramesh Kumar is a full stack developer building fast, accessible, and SEO-friendly web experiences with Next.js, React, and MERN stack.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteConfig.origin,
-    name: siteConfig.title,
-    description: siteConfig.description,
-    publisher: {
-      "@type": "Organization",
+const personId = `${siteConfig.origin}/#person`;
+const websiteId = `${siteConfig.origin}/#website`;
+const webpageId = `${siteConfig.origin}/#webpage`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+
       name: siteConfig.creator.name,
-      url: siteConfig.origin,
+
+      url: siteConfig.creator.url,
+
+      jobTitle: "Full Stack Developer",
+
+      description:
+        "Ramesh Kumar is a Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, and modern web applications.",
+
+      sameAs: [
+        siteConfig.socials.github,
+        siteConfig.socials.x,
+        siteConfig.socials.linkedin,
+        siteConfig.socials.buymeacoffee,
+      ],
     },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteConfig.origin,
+
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+
+      url: siteConfig.origin,
+
+      name: siteConfig.name,
+
+      description: siteConfig.description,
+
+      publisher: {
+        "@id": personId,
       },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: siteConfig.title,
-    description: siteConfig.description,
-    url: siteConfig.origin,
-  },
-]);
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+
+      url: siteConfig.origin,
+
+      name: siteConfig.title,
+
+      description: siteConfig.description,
+
+      isPartOf: {
+        "@id": websiteId,
+      },
+
+      about: {
+        "@id": personId,
+      },
+
+      mainEntity: {
+        "@id": personId,
+      },
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.origin),
+
   title: {
     default: siteConfig.title,
     template: "%s | Ramesh Kumar",
   },
+
   description: siteConfig.description,
+
   keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.creator.name, url: siteConfig.creator.url }],
+
+  authors: [
+    {
+      name: siteConfig.creator.name,
+      url: siteConfig.creator.url,
+    },
+  ],
+
   creator: siteConfig.creator.name,
+
+  publisher: siteConfig.creator.name,
+
+  alternates: {
+    canonical: "/",
+  },
+
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
-    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
+
+  manifest: "/site.webmanifest",
+
   openGraph: {
-    title: siteConfig.title,
-    description: siteConfig.description,
-    url: siteConfig.origin,
-    siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+
+    url: siteConfig.origin,
+
+    siteName: siteConfig.name,
+
+    title: siteConfig.title,
+
+    description: siteConfig.description,
+
     images: [
       {
-        url: "/favicon.png",
+        url: siteConfig.og,
         width: 1200,
         height: 630,
-        alt: "Ramesh Kumar portfolio preview",
+        alt: "Ramesh Kumar - Full Stack Developer",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
+
     title: siteConfig.title,
+
     description: siteConfig.description,
-    creator: siteConfig.creator.name,
-    images: ["/favicon.png"],
+
+    creator: "@rameshdotin",
+
+    images: [siteConfig.og],
   },
+
   robots: {
     index: true,
     follow: true,
-    nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -116,6 +166,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "t9Ra_CsuIKh8lUFVjsatkOcdPkU2oR08-smkWqUUMSA",
   },
 };
 
@@ -133,9 +186,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <link rel="icon" href="/favicon.png" sizes="any" />
-      <link rel="apple-touch-icon" href="/favicon.png" />
-      <link rel="manifest" href="/site.webmanifest" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
@@ -155,6 +205,12 @@ export default function RootLayout({
           </ThemeProvider>
         </ReduxProvider>
       </body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
     </html>
   );
 }
