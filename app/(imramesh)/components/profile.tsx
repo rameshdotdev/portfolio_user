@@ -60,6 +60,8 @@ export default function Profile() {
       .flatMap((t) => [t, 2000]);
   }, [user?.titles]);
 
+  const [isTypingPaused, setIsTypingPaused] = useState(false);
+
   // ✅ Proper ref typing for SlotCounter
   const counterRef = useRef<SlotCounterRef | null>(null);
 
@@ -142,7 +144,11 @@ export default function Profile() {
               </h1>
             </div>
 
-            <div className="relative inline-block">
+            <div
+              className="relative inline-block"
+              onMouseEnter={() => setIsTypingPaused(true)}
+              onMouseLeave={() => setIsTypingPaused(false)}
+            >
               <BlurFade delay={BLUR_FADE_DELAY * 1.2}>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -154,12 +160,18 @@ export default function Profile() {
                     className="inline-block"
                   >
                     {typingSequence.length > 0 ? (
-                      <TypeAnimation
-                        sequence={typingSequence}
-                        speed={50}
-                        repeat={Infinity}
-                        className="text-sm text-muted-foreground font-medium"
-                      />
+                      isTypingPaused ? (
+                        <span className="text-sm text-muted-foreground font-medium">
+                          {user.titles?.[0] || "—"}
+                        </span>
+                      ) : (
+                        <TypeAnimation
+                          sequence={typingSequence}
+                          speed={50}
+                          repeat={Infinity}
+                          className="text-sm text-muted-foreground font-medium"
+                        />
+                      )
                     ) : (
                       <span className="text-sm text-muted-foreground font-medium">
                         —
