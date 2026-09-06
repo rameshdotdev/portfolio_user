@@ -3,30 +3,42 @@ import { siteConfig } from "@/app/config/site.config";
 
 export const metadata: Metadata = {
   title: "Full Stack Developer Portfolio | Ramesh Kumar",
+
   description:
-    "Discover the portfolio of Ramesh Kumar, a full stack Next.js developer building fast, accessible, and SEO-friendly web applications.",
-  metadataBase: new URL(siteConfig.origin),
+    "Discover the portfolio of Ramesh Kumar, a Full Stack Developer specializing in Next.js, React, Node.js, and modern web applications.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     title: "Full Stack Developer Portfolio | Ramesh Kumar",
+
     description:
-      "Discover the portfolio of Ramesh Kumar, a full stack Next.js developer building fast, accessible, and SEO-friendly web applications.",
+      "Discover the portfolio of Ramesh Kumar, a Full Stack Developer specializing in Next.js, React, Node.js, and modern web applications.",
+
     url: siteConfig.origin,
     siteName: siteConfig.name,
     type: "website",
+
     images: [
       {
-        url: "/favicon.png",
+        url: siteConfig.og,
         width: 1200,
         height: 630,
-        alt: "Ramesh Kumar portfolio preview",
+        alt: "Ramesh Kumar - Full Stack Developer",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
+
     title: "Full Stack Developer Portfolio | Ramesh Kumar",
+
     description:
-      "Discover the portfolio of Ramesh Kumar, a full stack Next.js developer building fast, accessible, and SEO-friendly web applications.",
-    images: ["/favicon.png"],
+      "Discover the portfolio of Ramesh Kumar, a Full Stack Developer specializing in Next.js, React, Node.js, and modern web applications.",
+
+    images: [siteConfig.og],
   },
 };

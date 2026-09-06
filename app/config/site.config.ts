@@ -3,7 +3,8 @@ import { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "imramesh.in",
 
-  title: " - Software Engineer | Next.js, React & Node.js Developer",
+  title:
+    "Ramesh Kumar - Software Engineer | Next.js, React & Node.js Developer",
 
   description:
     "Hey, I'm Ramesh, a Full Stack Developer who loves building clean, modern websites and applications where design, functionality, and even the smallest details matter. I focus on creating products that are practical, performant, accessible, and visually satisfying. I'm flexible with technology and choose the right tools based on each project's needs, with a preference for modern frameworks and tools.",
