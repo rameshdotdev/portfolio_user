@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import ReduxProvider from "@/providers/redux-provider";
@@ -105,7 +107,6 @@ export const metadata: Metadata = {
   ],
 
   creator: siteConfig.creator.name,
-
   publisher: siteConfig.creator.name,
 
   alternates: {
@@ -123,13 +124,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-
     url: siteConfig.origin,
-
     siteName: siteConfig.name,
-
     title: siteConfig.title,
-
     description: siteConfig.description,
 
     images: [
@@ -144,13 +141,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: siteConfig.title,
-
     description: siteConfig.description,
-
     creator: "@rameshdotin",
-
     images: [siteConfig.og],
   },
 
@@ -167,6 +160,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   verification: {
     google: "t9Ra_CsuIKh8lUFVjsatkOcdPkU2oR08-smkWqUUMSA",
   },
@@ -174,8 +168,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#f8fafc",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#020617",
+    },
   ],
 };
 
@@ -197,21 +197,21 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Toaster richColors />
+
             <main>{children}</main>
 
             <script
               type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: structuredData }}
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(structuredData),
+              }}
             />
           </ThemeProvider>
         </ReduxProvider>
+
+        {/* Google Analytics */}
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
       </body>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
     </html>
   );
 }
