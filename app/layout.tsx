@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+// import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -210,7 +210,7 @@ export default function RootLayout({
         </ReduxProvider>
 
         {/* Google Analytics */}
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        {/* <GoogleAnalytics gaId="G-XXXXXXXXXX" /> */}
       </body>
     </html>
   );
