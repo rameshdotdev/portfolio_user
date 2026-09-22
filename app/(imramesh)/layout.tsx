@@ -23,6 +23,7 @@ export default function Layout({
           </VerticalDashedBorderLayout>
           <HorizontalDashedBorder />
           {children}
+
           <HorizontalDashedBorder />
           <VerticalDashedBorderLayout>
             <BgDotGrid />

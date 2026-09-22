@@ -198,6 +198,7 @@ export default function RootLayout({
           >
             <Toaster richColors />
             <main>{children}</main>
+
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: structuredData }}

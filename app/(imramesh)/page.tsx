@@ -23,7 +23,7 @@ import AboutSocials from "./components/section/about-socials";
 import { useAppSelector } from "@/hooks/hooks";
 import { getWorksData } from "@/store/features/workSlice";
 import { selectProjects } from "@/store/features/projectSlice";
-
+import GradualBlur from "@/components/GradualBlur";
 /* -------------------------------------------------------------------------- */
 /*                              Dynamic Imports                               */
 /* -------------------------------------------------------------------------- */
@@ -131,6 +131,16 @@ export default function Page() {
           <QuoteCard />
         </VerticalDashedBorderLayout>
       </section>
+      
+
+ <GradualBlur
+            position="bottom"
+            height="5rem"
+            target="page"
+            zIndex={1}
+            strength={2}
+            divCount={5}
+          />
     </>
   );
 }

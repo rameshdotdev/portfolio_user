@@ -27,13 +27,15 @@ export default function BackToTop() {
       onClick={scrollToTop}
       aria-label="Scroll to top"
       className={`
-        fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-50
-        border border-border rounded-[10px] p-[2px]
+        fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-[999]
+        border border-border rounded-[10px] p-0.5
         shadow-lg group cursor-pointer
         transition-all duration-500 ease-out
-        ${visible
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-10 scale-95 pointer-events-none"}
+        ${
+          visible
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-10 scale-95 pointer-events-none"
+        }
       `}
     >
       <div
